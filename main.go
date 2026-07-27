@@ -14,7 +14,7 @@ func main() {
 	fmt.Scan(&number1)
 	fmt.Print("Введите действие: ")
 	fmt.Scan(&action)
-	fmt.Print("Введите второе число: ")
+	fmt.Print("Введите второе число:  ")
 	fmt.Scan(&number2)
 	IMT := calcurateIMT(number1, number2, action)
 	outputResult(IMT)
