@@ -1,21 +1,28 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
+	"strconv"
+	"strings"
 )
 
 func main() {
-	var number1 float64
-	var number2 float64
-	var action string
-
 	fmt.Println("___Калькулятор___")
-	fmt.Print("Введите первое число: ")
-	fmt.Scan(&number1)
-	fmt.Print("Введите действие: ")
-	fmt.Scan(&action)
-	fmt.Print("Введите второе число:  ")
-	fmt.Scan(&number2)
+	fmt.Println("Поддерживает ввод примера только через пробелы, н/п '1 + 10'")
+	fmt.Print("Введите пример: ")
+
+	reader := bufio.NewReader(os.Stdin)
+	expression, _ := reader.ReadString('\n')
+	expression = strings.TrimSpace(expression)
+
+	parts := strings.Split(expression, " ")
+
+	number1, _ := strconv.ParseFloat(parts[0], 64)
+	action := parts[1]
+	number2, _ := strconv.ParseFloat(parts[2], 64)
+
 	IMT := calcurateIMT(number1, number2, action)
 	outputResult(IMT)
 }
