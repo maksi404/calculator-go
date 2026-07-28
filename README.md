@@ -12,5 +12,5 @@
 
 ## Как запустить
 
---BASH
+```bash
 go run main.go
